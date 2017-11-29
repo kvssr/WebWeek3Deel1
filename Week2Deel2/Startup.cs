@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using Week2Deel2.Data;
 
 namespace Week2Deel2
 {
@@ -29,6 +31,8 @@ namespace Week2Deel2
         {
             // Add framework services.
             services.AddMvc();
+            services.AddDbContext<HotelBoekingContext>(options => options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=WebWeek3Deel1;Trusted_Connection = True;MultipleActiveResultSets = true"));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
